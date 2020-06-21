@@ -31,8 +31,10 @@ jobs:
     - name: Target IBM Cloud
       env:
         RESOURSE_ID: ${{ secrets.RESOURSE_ID }}
+         ORGANIZATION_NUM: ${{ secrets.ORGANIZATION_NUM }}
       run: |
         ./IBM_Cloud_CLI/ibmcloud target -g "$RESOURSE_ID"
+        ./IBM_Cloud_CLI/ibmcloud target -g "$ORGANIZATION_NUM"
         ./IBM_Cloud_CLI/ibmcloud target --cf
         ./IBM_Cloud_CLI/ibmcloud cf install
     - name: Restart IBM Cloud
